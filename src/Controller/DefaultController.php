@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends AbstractController
 {
     /**
-     * @Route("/wild", name="wild_home")
+     * @Route("/", name="app_index")
      */
     public function index() : Response
     {
