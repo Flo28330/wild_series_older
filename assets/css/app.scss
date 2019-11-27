@@ -1,0 +1,59 @@
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Oswald:700&display=swap');
+
+$colors: (
+        "black": $black,
+        "white": $white,
+        "orange": $orange,
+);
+
+body {
+  background-color: $black !important;
+  color: $white;
+  h1 {
+    padding-left: 15px;
+    padding-top: 10px;
+  }
+
+  header {
+    .navbar {
+      overflow: hidden;
+      background-color: $black;
+      top: 0;
+      width: 100%;
+      font-weight: 700;
+
+      #logo {
+        width: 110px;
+      }
+
+      ul {
+        text-align: center;
+        list-style-type: none;
+        margin: 0;
+        padding: 18px;
+
+        li {
+          display: inline;
+          font-size: 1.7rem;
+          color: $white;
+
+          a {
+            color: $orange;
+            text-decoration: none;
+            padding: 14px;
+
+            &:hover {
+              color: $orange !important;
+            }
+          }
+        }
+      }
+    }
+    @each $color, $value in $theme-colors {
+      .btn-outline-#{$color} {
+        @include button-outline-variant($orange);
+      }
+    }
+  }
+}
