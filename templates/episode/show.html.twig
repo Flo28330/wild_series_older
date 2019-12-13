@@ -1,25 +1,30 @@
 {% extends 'base.html.twig' %}
-{% block title %} Episode {% endblock %}
 
+{% block title %}Episode{% endblock %}
 
 {% block body %}
-    <div>
+    <h1>Episode</h1>
 
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ episode.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ episode.title }}</td>
+            </tr>
+            <tr>
+                <th>Synopsis</th>
+                <td>{{ episode.synopsis }}</td>
+            </tr>
+        </tbody>
+    </table>
 
-        <ul>
+    <a href="{{ path('episode_index') }}">back to list</a>
 
-            <a href="{{ path('show_season_by_program', {'programName':episode.season.program.title|lower}) }}">{{ episode.season.description }}</a>
-            <a href="{{ path('wild_show_episode', {'id': episode.id}) }}"> {{ episode.id }} {{ episode.title }} {{ episode.synopsis }}</a>
-        </ul>
-        <img class="align-self-start mr-3" src="{{episode.season.program.poster}}" alt="{{ episode.season.program.title }} poster">
-        <div>
-            <h1 class="mt-0">{{ episode.season.program.title }}</h1>
-            <p>{{ episode.season.program.summary }}</p>
-            <p>Categorie : {{ episode.season.program.category.name }}</p>
-        </div>
-    </div>
-    <a href="{{ path('wild_index') }}">
-        Retour à l'accueil
-    </a>
+    <a href="{{ path('episode_edit', {'id': episode.id}) }}">edit</a>
 
+    {{ include('episode/_delete_form.html.twig') }}
 {% endblock %}
